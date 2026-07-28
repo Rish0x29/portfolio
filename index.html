@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishit Das — Portfolio</title>
+  <meta name="description" content="Rishit Das — DeFi, AI & Data Engineer. Building on-chain intelligence and machine learning systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #05050a;
+      --bg-elevated: #0c0c14;
+      --surface: rgba(18, 18, 28, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(0, 229, 255, 0.35);
+      --text: #e8e8f0;
+      --text-muted: #8b8ba3;
+      --accent: #00e5ff;
+      --accent-2: #a855f7;
+      --accent-3: #22d3ee;
+      --gradient: linear-gradient(135deg, #00e5ff 0%, #a855f7 50%, #ec4899 100%);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 { width: 500px; height: 500px; background: #00e5ff; top: -150px; left: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: #a855f7; bottom: 10%; right: -100px; }
+    .orb-3 { width: 300px; height: 300px; background: #ec4899; top: 40%; left: 50%; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(5, 5, 10, 0.7);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+    .hero-content { max-width: 720px; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 4.2rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    h1 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--gradient);
+      color: #05050a;
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(0, 229, 255, 0.4);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0, 229, 255, 0.05);
+    }
+
+    section {
+      padding: 100px 0;
+    }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 48px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+    }
+    .about-text strong { color: var(--text); font-weight: 600; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s;
+    }
+    .stat-card:hover { border-color: var(--border-hover); }
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .project-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .tag {
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(0, 229, 255, 0.08);
+      color: var(--accent);
+      border: 1px solid rgba(0, 229, 255, 0.15);
+    }
+    .tag.purple {
+      background: rgba(168, 85, 247, 0.1);
+      color: #c084fc;
+      border-color: rgba(168, 85, 247, 0.2);
+    }
+    .tag.pink {
+      background: rgba(236, 72, 153, 0.1);
+      color: #f472b6;
+      border-color: rgba(236, 72, 153, 0.2);
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+    .project-links {
+      display: flex;
+      gap: 12px;
+    }
+    .project-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+    .project-links a:hover { opacity: 0.7; }
+
+    .stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .stack-item {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .stack-item:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0, 229, 255, 0.05);
+    }
+
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.08), transparent 60%);
+      pointer-events: none;
+    }
+    .contact-box h2 { margin-bottom: 12px; }
+    .contact-box p {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate {
+      animation: fadeUp 0.7s ease forwards;
+      opacity: 0;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <nav>
+    <div class="container">
+      <div class="logo">rishit.dev</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge animate">Available for opportunities</div>
+        <h1 class="animate delay-1">Rishit Das<br /><span>DeFi · AI · Data</span></h1>
+        <p class="hero-sub animate delay-2">
+          Building on-chain intelligence systems, explainable ML tools, and decentralized infrastructure. Currently at CoinGape.
+        </p>
+        <div class="hero-cta animate delay-3">
+          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="https://github.com/Rish0x29" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-label">About</div>
+      <h2>Shipping systems that matter</h2>
+      <div class="about-grid" style="margin-top: 40px;">
+        <div class="about-text">
+          <p>
+            I'm a builder focused on the intersection of <strong>DeFi, machine learning, and decentralized infrastructure</strong>. I design systems that turn raw on-chain data into actionable intelligence — credit scores, MEV analytics, compute marketplaces, and more.
+          </p>
+          <p>
+            My work spans full-stack ML pipelines, smart-contract design on Sui, privacy-first client-side apps, and research tooling used by traders and protocol teams. Everything I ship prioritizes correctness, transparency, and real utility.
+          </p>
+          <p>
+            Currently contributing at <strong>CoinGape</strong>. Always open to interesting problems in crypto-native ML and DePIN.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Public repos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">0.92</div>
+            <div class="stat-label">ROC-AUC on credit model</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">Sui</div>
+            <div class="stat-label">Move contracts shipped</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Local-first privacy tools</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-label">Selected Work</div>
+      <h2>Projects</h2>
+      <p class="section-desc">A mix of DeFi intelligence, explainable AI, and practical tools.</p>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag purple">ML</span>
+            <span class="tag">DeFi</span>
+          </div>
+          <h3>DeFi Credit Score</h3>
+          <p>
+            On-chain credit scoring for undercollateralized lending. 22 raw features → ensemble models → FICO-style 300–850 score with loan limits. ROC-AUC 0.924. FastAPI endpoint ready.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/Rish0x29/DEFI_CredScore" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-tags">
+            <span class="tag">Move</span>
+            <span class="tag">Sui</span>
+            <span class="tag purple">DePIN</span>
+            <span class="tag">Walrus</span>
+          </div>
+          <h3>NeuraMesh</h3>
+          <p>
+            Decentralized AI compute marketplace. Providers and consumers match via trustless escrow on Sui. Model weights & results live on Walrus. Reputation + staking + slashing.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/Rish0x29/NeuraMesh" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-tags">
+            <span class="tag">Streamlit</span>
+            <span class="tag purple">SHAP</span>
+            <span class="tag">XAI</span>
+            <span class="tag">scikit-learn</span>
+          </div>
+          <h3>Dash-AI</h3>
+          <p>
+            Upload any CSV, train classifiers, and understand *why* predictions happen. Global + local SHAP explanations, beeswarm & waterfall plots. 100% local — no data leaves your machine.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/Rish0x29/Dash-Ai" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-tags">
+            <span class="tag">Vanilla JS</span>
+            <span class="tag">Gmail API</span>
+            <span class="tag pink">OAuth</span>
+          </div>
+          <h3>InboxIntel</h3>
+          <p>
+            Single-file Gmail job application tracker. Smart queries, status classification, priority scoring, and direct thread links. Zero dependencies, fully client-side, privacy-first.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/Rish0x29/InboxIntel" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Dune</span>
+            <span class="tag purple">MEV</span>
+            <span class="tag">SQL</span>
+          </div>
+          <h3>MEV Toolkit</h3>
+          <p>
+            Sandwich attack analysis suite. 10 Dune SQL queries, Python AMM simulator with optimal frontrun math, and a live ops dashboard for profitability research.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/Rish0x29/MEV_Tracking-Bot" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-tags">
+            <span class="tag">NLP</span>
+            <span class="tag purple">Local ML</span>
+            <span class="tag">Python</span>
+          </div>
+          <h3>Resume ATS Checker</h3>
+          <p>
+            Score your resume against any job description with local NLP. Instant feedback on why ATS systems filter you out — and actionable tips to fix it. No data uploaded.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/Rish0x29/Resume_ATS-Checker" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="container">
+      <div class="section-label">Toolkit</div>
+      <h2>Stack</h2>
+      <p class="section-desc">Languages, frameworks, and infra I use regularly.</p>
+      <div class="stack-grid">
+        <span class="stack-item">Python</span>
+        <span class="stack-item">TypeScript</span>
+        <span class="stack-item">Move (Sui)</span>
+        <span class="stack-item">FastAPI</span>
+        <span class="stack-item">scikit-learn</span>
+        <span class="stack-item">SHAP</span>
+        <span class="stack-item">Streamlit</span>
+        <span class="stack-item">Pandas / NumPy</span>
+        <span class="stack-item">SQL / Dune</span>
+        <span class="stack-item">React</span>
+        <span class="stack-item">Walrus</span>
+        <span class="stack-item">Docker</span>
+        <span class="stack-item">GitHub Actions</span>
+        <span class="stack-item">OAuth / Gmail API</span>
+        <span class="stack-item">HTML / CSS / JS</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div class="section-label">Contact</div>
+        <h2>Let's build something</h2>
+        <p>Open to collaborations, interesting problems, and roles in crypto-native ML / DeFi infrastructure.</p>
+        <div class="contact-links">
+          <a href="mailto:RISHITD346@GMAIL.COM" class="btn btn-primary">Email Me</a>
+          <a href="https://github.com/Rish0x29" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Rishit Das · Built as a single-file static site · <a href="https://github.com/Rish0x29" target="_blank" rel="noopener">Rish0x29</a></p>
+    </div>
+  </footer>
+</body>
+</html>
