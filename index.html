@@ -4,29 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rishit Das — Portfolio</title>
-  <meta name="description" content="Rishit Das — DeFi, AI & Data Engineer. Building on-chain intelligence and machine learning systems." />
+  <meta name="description" content="Rishit Das — Software Engineer · DeFi · AI · Data. B.Tech CSE (IT) at SRM. Ex-Siemens, CoinGape." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #05050a;
-      --bg-elevated: #0c0c14;
-      --surface: rgba(18, 18, 28, 0.7);
+      --surface: rgba(18, 18, 28, 0.72);
       --border: rgba(255, 255, 255, 0.08);
       --border-hover: rgba(0, 229, 255, 0.35);
       --text: #e8e8f0;
       --text-muted: #8b8ba3;
       --accent: #00e5ff;
       --accent-2: #a855f7;
-      --accent-3: #22d3ee;
       --gradient: linear-gradient(135deg, #00e5ff 0%, #a855f7 50%, #ec4899 100%);
       --radius: 16px;
-      --radius-sm: 10px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -54,16 +50,16 @@
       position: fixed;
       border-radius: 50%;
       filter: blur(100px);
-      opacity: 0.25;
+      opacity: 0.22;
       pointer-events: none;
       z-index: 0;
     }
-    .orb-1 { width: 500px; height: 500px; background: #00e5ff; top: -150px; left: -100px; }
-    .orb-2 { width: 400px; height: 400px; background: #a855f7; bottom: 10%; right: -100px; }
-    .orb-3 { width: 300px; height: 300px; background: #ec4899; top: 40%; left: 50%; }
+    .orb-1 { width: 480px; height: 480px; background: #00e5ff; top: -140px; left: -80px; }
+    .orb-2 { width: 380px; height: 380px; background: #a855f7; bottom: 8%; right: -80px; }
+    .orb-3 { width: 280px; height: 280px; background: #ec4899; top: 45%; left: 55%; }
 
     .container {
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 24px;
       position: relative;
@@ -75,9 +71,8 @@
       top: 0; left: 0; right: 0;
       z-index: 100;
       backdrop-filter: blur(20px);
-      background: rgba(5, 5, 10, 0.7);
+      background: rgba(5, 5, 10, 0.75);
       border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
     }
     nav .container {
       display: flex;
@@ -96,13 +91,13 @@
     }
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 28px;
       list-style: none;
     }
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       transition: color 0.2s;
     }
@@ -115,7 +110,7 @@
       padding-top: 80px;
       padding-bottom: 60px;
     }
-    .hero-content { max-width: 720px; }
+    .hero-content { max-width: 700px; }
 
     .badge {
       display: inline-flex;
@@ -124,16 +119,16 @@
       padding: 6px 14px;
       border-radius: 999px;
       background: rgba(0, 229, 255, 0.08);
-      border: 1px solid rgba(0, 229, 255, 0.2);
+      border: 1px solid rgba(0, 229, 255, 0.22);
       color: var(--accent);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 500;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
       font-family: 'JetBrains Mono', monospace;
     }
     .badge::before {
       content: '';
-      width: 8px; height: 8px;
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--accent);
       box-shadow: 0 0 10px var(--accent);
@@ -141,15 +136,15 @@
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      50% { opacity: 0.35; }
     }
 
     h1 {
-      font-size: clamp(2.8rem, 7vw, 4.2rem);
+      font-size: clamp(2.6rem, 6.5vw, 3.9rem);
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 1.1;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     h1 span {
       background: var(--gradient);
@@ -159,26 +154,36 @@
     }
 
     .hero-sub {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      max-width: 540px;
-      margin-bottom: 36px;
+      max-width: 560px;
+      margin-bottom: 14px;
       line-height: 1.7;
+    }
+    .hero-meta {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .hero-meta a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
     .hero-cta {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 24px;
+      padding: 12px 22px;
       border-radius: 999px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       text-decoration: none;
       transition: all 0.25s ease;
       cursor: pointer;
@@ -187,7 +192,7 @@
     .btn-primary {
       background: var(--gradient);
       color: #05050a;
-      box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+      box-shadow: 0 0 28px rgba(0, 229, 255, 0.25);
     }
     .btn-primary:hover {
       transform: translateY(-2px);
@@ -204,62 +209,61 @@
       background: rgba(0, 229, 255, 0.05);
     }
 
-    section {
-      padding: 100px 0;
-    }
+    section { padding: 90px 0; }
     .section-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     h2 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-size: clamp(1.7rem, 3.8vw, 2.25rem);
       font-weight: 700;
       letter-spacing: -0.03em;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .section-desc {
       color: var(--text-muted);
       max-width: 520px;
-      margin-bottom: 48px;
+      margin-bottom: 42px;
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 40px;
       align-items: start;
+      margin-top: 36px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 800px) {
       .about-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
     .about-text p {
       color: var(--text-muted);
-      margin-bottom: 18px;
-      font-size: 1.05rem;
+      margin-bottom: 16px;
+      font-size: 1.02rem;
     }
     .about-text strong { color: var(--text); font-weight: 600; }
 
     .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
     }
     .stat-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 22px;
       backdrop-filter: blur(12px);
       transition: border-color 0.3s;
     }
     .stat-card:hover { border-color: var(--border-hover); }
     .stat-num {
-      font-size: 1.8rem;
+      font-size: 1.55rem;
       font-weight: 700;
       background: var(--gradient);
       -webkit-background-clip: text;
@@ -268,20 +272,65 @@
       margin-bottom: 4px;
     }
     .stat-label {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
     }
 
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px 28px;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s;
+    }
+    .exp-card:hover { border-color: var(--border-hover); }
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .exp-header h3 {
+      font-size: 1.1rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+    .exp-company {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .exp-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 12px;
+    }
+    .exp-card ul {
+      margin-left: 18px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    .exp-card li { margin-bottom: 6px; }
+    .exp-card li::marker { color: var(--accent); }
+
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 20px;
     }
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 26px;
       backdrop-filter: blur(12px);
       transition: all 0.3s ease;
       display: flex;
@@ -301,20 +350,20 @@
     .project-card:hover {
       border-color: var(--border-hover);
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
     }
     .project-card:hover::before { opacity: 1; }
 
     .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
+      gap: 7px;
+      margin-bottom: 14px;
     }
     .tag {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-family: 'JetBrains Mono', monospace;
-      padding: 4px 10px;
+      padding: 3px 9px;
       border-radius: 6px;
       background: rgba(0, 229, 255, 0.08);
       color: var(--accent);
@@ -332,59 +381,56 @@
     }
 
     .project-card h3 {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       letter-spacing: -0.02em;
     }
     .project-card p {
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       flex-grow: 1;
-      margin-bottom: 20px;
-    }
-    .project-links {
-      display: flex;
-      gap: 12px;
+      margin-bottom: 18px;
     }
     .project-links a {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 500;
       color: var(--accent);
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       transition: opacity 0.2s;
     }
     .project-links a:hover { opacity: 0.7; }
 
-    .stack-grid {
+    .stack-grid, .certs-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
-    .stack-item {
-      padding: 10px 18px;
+    .stack-item, .cert-item {
+      padding: 9px 16px;
       border-radius: 999px;
       background: var(--surface);
       border: 1px solid var(--border);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       color: var(--text);
       transition: all 0.2s;
     }
-    .stack-item:hover {
+    .stack-item:hover, .cert-item:hover {
       border-color: var(--accent);
       color: var(--accent);
       background: rgba(0, 229, 255, 0.05);
+    }
+    .cert-item {
+      border-radius: 10px;
+      font-size: 0.85rem;
     }
 
     .contact-box {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 48px;
+      padding: 48px 32px;
       text-align: center;
       backdrop-filter: blur(12px);
       position: relative;
@@ -394,14 +440,14 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.08), transparent 60%);
+      background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.07), transparent 60%);
       pointer-events: none;
     }
-    .contact-box h2 { margin-bottom: 12px; }
+    .contact-box h2 { margin-bottom: 10px; }
     .contact-box p {
       color: var(--text-muted);
-      margin-bottom: 32px;
-      max-width: 400px;
+      margin-bottom: 28px;
+      max-width: 420px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -409,33 +455,26 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
     footer {
-      padding: 40px 0;
+      padding: 36px 0;
       border-top: 1px solid var(--border);
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
     }
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    footer a { color: var(--accent); text-decoration: none; }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(22px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .animate {
-      animation: fadeUp 0.7s ease forwards;
-      opacity: 0;
-    }
+    .animate { animation: fadeUp 0.7s ease forwards; opacity: 0; }
     .delay-1 { animation-delay: 0.1s; }
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
   </style>
 </head>
 <body>
@@ -448,8 +487,9 @@
       <div class="logo">rishit.dev</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#stack">Stack</a></li>
+        <li><a href="#stack">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -458,14 +498,19 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="badge animate">Available for opportunities</div>
-        <h1 class="animate delay-1">Rishit Das<br /><span>DeFi · AI · Data</span></h1>
+        <div class="badge animate">Open to full-time · Graduating 2026</div>
+        <h1 class="animate delay-1">Rishit Das<br /><span>Software · DeFi · AI</span></h1>
         <p class="hero-sub animate delay-2">
-          Building on-chain intelligence systems, explainable ML tools, and decentralized infrastructure. Currently at CoinGape.
+          B.Tech CSE (IT) at SRM · Building on-chain systems, ML tools & data products. 
+          Previously at Siemens and CoinGape.
+        </p>
+        <p class="hero-meta animate delay-2">
+          Delhi, India · <a href="mailto:rishitd346@gmail.com">rishitd346@gmail.com</a> · +91 9910550079
         </p>
         <div class="hero-cta animate delay-3">
-          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="#projects" class="btn btn-primary">View Work →</a>
           <a href="https://github.com/Rish0x29" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+          <a href="https://www.linkedin.com/in/rishit-das-5225ab245/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -474,37 +519,112 @@
   <section id="about">
     <div class="container">
       <div class="section-label">About</div>
-      <h2>Shipping systems that matter</h2>
-      <div class="about-grid" style="margin-top: 40px;">
+      <h2>Builder at the intersection of software, crypto & data</h2>
+      <div class="about-grid">
         <div class="about-text">
           <p>
-            I'm a builder focused on the intersection of <strong>DeFi, machine learning, and decentralized infrastructure</strong>. I design systems that turn raw on-chain data into actionable intelligence — credit scores, MEV analytics, compute marketplaces, and more.
+            I'm a final-year <strong>B.Tech Computer Science & Engineering (IT)</strong> student at 
+            <strong>SRM Institute of Science and Technology</strong> (CGPA 8.15, graduating June 2026).
           </p>
           <p>
-            My work spans full-stack ML pipelines, smart-contract design on Sui, privacy-first client-side apps, and research tooling used by traders and protocol teams. Everything I ship prioritizes correctness, transparency, and real utility.
+            I design and ship systems that turn data into decisions — from real-time infrastructure dashboards 
+            at Siemens, to SEO & growth systems at CoinGape, to DePIN protocols and explainable ML tools 
+            on the side.
           </p>
           <p>
-            Currently contributing at <strong>CoinGape</strong>. Always open to interesting problems in crypto-native ML and DePIN.
+            Comfortable across the stack: Python, TypeScript/React, Sui Move, FastAPI, scikit-learn, Power BI, 
+            and modern data tooling. I care about correctness, clear interfaces, and measurable impact.
           </p>
         </div>
         <div class="stats">
           <div class="stat-card">
+            <div class="stat-num">8.15</div>
+            <div class="stat-label">CGPA · SRM IST</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">5</div>
+            <div class="stat-label">Professional roles</div>
+          </div>
+          <div class="stat-card">
             <div class="stat-num">20+</div>
-            <div class="stat-label">Public repos</div>
+            <div class="stat-label">Public GitHub repos</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num">0.92</div>
-            <div class="stat-label">ROC-AUC on credit model</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">Sui</div>
-            <div class="stat-label">Move contracts shipped</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Local-first privacy tools</div>
+            <div class="stat-num">NVIDIA</div>
+            <div class="stat-label">GenAI LLMs certified</div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-label">Experience</div>
+      <h2>Where I've shipped</h2>
+      <p class="section-desc">Internships and roles across software, SEO, operations and Web3 growth.</p>
+
+      <div class="exp-list">
+        <article class="exp-card">
+          <div class="exp-header">
+            <h3>Software Intern Trainee</h3>
+            <span class="exp-company">Siemens Ltd.</span>
+          </div>
+          <div class="exp-meta">Gurugram, HR</div>
+          <ul>
+            <li>Built a real-time VDI monitoring dashboard in Python tracking drive utilization, session activity and system health across 100+ virtual desktops — cutting manual monitoring overhead.</li>
+            <li>Configured and managed Microsoft Intune policies for device provisioning, compliance and endpoint security across the enterprise fleet.</li>
+            <li>Documented infrastructure workflows and contributed to the internal IT knowledge base, accelerating onboarding for new engineers.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp-header">
+            <h3>Associate Executive – SEO</h3>
+            <span class="exp-company">CoinGape</span>
+          </div>
+          <div class="exp-meta">Remote</div>
+          <ul>
+            <li>Implemented technical on-page SEO across 200+ pages, improving crawl efficiency and contributing to measurable gains in organic search rankings.</li>
+            <li>Ran keyword research, structured data markup and site architecture improvements in collaboration with editorial and engineering teams.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp-header">
+            <h3>Operations Intern</h3>
+            <span class="exp-company">RDR Impex Private Ltd.</span>
+          </div>
+          <div class="exp-meta">Delhi, ND</div>
+          <ul>
+            <li>Coordinated end-to-end container shipment logistics for export operations, liaising between freight partners and executive stakeholders.</li>
+            <li>Built Power BI dashboards visualizing shipment KPIs and financial trends for faster, data-driven decisions by senior management.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp-header">
+            <h3>Junior Web3 Content Writer</h3>
+            <span class="exp-company">Kappsoft</span>
+          </div>
+          <div class="exp-meta">Remote</div>
+          <ul>
+            <li>Authored technical and editorial Web3 content for Medium and Twitter, growing audience engagement and brand credibility in the crypto community.</li>
+            <li>Supported business development through outreach and partnership coordination for early-stage Web3 projects.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp-header">
+            <h3>Freelance Growth Consultant</h3>
+            <span class="exp-company">Polytrade / LayerEdge</span>
+          </div>
+          <div class="exp-meta">Remote</div>
+          <ul>
+            <li>Directed a team of 5–6 community accounts to run coordinated Twitter growth campaigns, driving measurable increases in engagement and project visibility.</li>
+            <li>Designed weekly and monthly performance dashboards that turned raw social metrics into actionable growth insights for clients.</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
@@ -513,9 +633,26 @@
     <div class="container">
       <div class="section-label">Selected Work</div>
       <h2>Projects</h2>
-      <p class="section-desc">A mix of DeFi intelligence, explainable AI, and practical tools.</p>
+      <p class="section-desc">DeFi protocols, ML systems, infrastructure tooling and IoT.</p>
 
       <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-tags">
+            <span class="tag">Sui Move</span>
+            <span class="tag">Python</span>
+            <span class="tag purple">DePIN</span>
+            <span class="tag">React</span>
+          </div>
+          <h3>NeuraMesh</h3>
+          <p>
+            Trustless GPU/CPU compute marketplace on Sui. Move smart contracts for registry, escrow & reputation; 
+            Python node agent; TypeScript SDK; React dashboard; Walrus for decentralized storage. Full NMESH tokenomics (staking, slashing, compute credits).
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/Rish0x29/NeuraMesh" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
 
         <article class="project-card">
           <div class="project-tags">
@@ -526,26 +663,11 @@
           </div>
           <h3>DeFi Credit Score</h3>
           <p>
-            On-chain credit scoring for undercollateralized lending. 22 raw features → ensemble models → FICO-style 300–850 score with loan limits. ROC-AUC 0.924. FastAPI endpoint ready.
+            On-chain credit scoring for undercollateralized lending. 22 raw features → engineered signals → ensemble models 
+            producing FICO-style 300–850 scores with loan limits. ROC-AUC 0.92. Production-ready FastAPI endpoint.
           </p>
           <div class="project-links">
             <a href="https://github.com/Rish0x29/DEFI_CredScore" target="_blank" rel="noopener">GitHub →</a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-tags">
-            <span class="tag">Move</span>
-            <span class="tag">Sui</span>
-            <span class="tag purple">DePIN</span>
-            <span class="tag">Walrus</span>
-          </div>
-          <h3>NeuraMesh</h3>
-          <p>
-            Decentralized AI compute marketplace. Providers and consumers match via trustless escrow on Sui. Model weights & results live on Walrus. Reputation + staking + slashing.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/Rish0x29/NeuraMesh" target="_blank" rel="noopener">GitHub →</a>
           </div>
         </article>
 
@@ -558,7 +680,8 @@
           </div>
           <h3>Dash-AI</h3>
           <p>
-            Upload any CSV, train classifiers, and understand *why* predictions happen. Global + local SHAP explanations, beeswarm & waterfall plots. 100% local — no data leaves your machine.
+            Local-first ML diagnostic tool. Upload any CSV, train classifiers, and understand *why* predictions happen 
+            via global & local SHAP explanations, beeswarm and waterfall plots. Zero data leaves the machine.
           </p>
           <div class="project-links">
             <a href="https://github.com/Rish0x29/Dash-Ai" target="_blank" rel="noopener">GitHub →</a>
@@ -567,16 +690,18 @@
 
         <article class="project-card">
           <div class="project-tags">
-            <span class="tag">Vanilla JS</span>
-            <span class="tag">Gmail API</span>
-            <span class="tag pink">OAuth</span>
+            <span class="tag">Python</span>
+            <span class="tag">Spark</span>
+            <span class="tag purple">AI Agent</span>
+            <span class="tag">SQL</span>
           </div>
-          <h3>InboxIntel</h3>
+          <h3>AI Agent for Big Data Analytics</h3>
           <p>
-            Single-file Gmail job application tracker. Smart queries, status classification, priority scoring, and direct thread links. Zero dependencies, fully client-side, privacy-first.
+            AI-powered analytics agent for large-scale dataset ingestion, automated querying and distributed insight generation 
+            using Spark, Pandas, NumPy and scikit-learn.
           </p>
           <div class="project-links">
-            <a href="https://github.com/Rish0x29/InboxIntel" target="_blank" rel="noopener">GitHub →</a>
+            <a href="https://github.com/Rish0x29/AI-Agent-for-Data-Analytics" target="_blank" rel="noopener">GitHub →</a>
           </div>
         </article>
 
@@ -589,7 +714,8 @@
           </div>
           <h3>MEV Toolkit</h3>
           <p>
-            Sandwich attack analysis suite. 10 Dune SQL queries, Python AMM simulator with optimal frontrun math, and a live ops dashboard for profitability research.
+            Sandwich attack analysis suite: 10 Dune Analytics SQL queries, Python AMM simulator with optimal frontrun math, 
+            and a live ops dashboard for profitability research and gas strategy comparison.
           </p>
           <div class="project-links">
             <a href="https://github.com/Rish0x29/MEV_Tracking-Bot" target="_blank" rel="noopener">GitHub →</a>
@@ -598,16 +724,18 @@
 
         <article class="project-card">
           <div class="project-tags">
-            <span class="tag">NLP</span>
-            <span class="tag purple">Local ML</span>
-            <span class="tag">Python</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">ESP8266</span>
+            <span class="tag pink">IoT</span>
+            <span class="tag">Sensors</span>
           </div>
-          <h3>Resume ATS Checker</h3>
+          <h3>Industrial Surveillance Bot</h3>
           <p>
-            Score your resume against any job description with local NLP. Instant feedback on why ATS systems filter you out — and actionable tips to fix it. No data uploaded.
+            Autonomous robot with Arduino Uno, ESP8266 and IoT sensors (MQ135, DHT11, DS18B20) for real-time environmental 
+            monitoring and hazard alerting in industrial settings.
           </p>
           <div class="project-links">
-            <a href="https://github.com/Rish0x29/Resume_ATS-Checker" target="_blank" rel="noopener">GitHub →</a>
+            <span style="color:var(--text-muted);font-size:0.84rem;">Hardware / IoT project</span>
           </div>
         </article>
 
@@ -618,24 +746,47 @@
   <section id="stack">
     <div class="container">
       <div class="section-label">Toolkit</div>
-      <h2>Stack</h2>
-      <p class="section-desc">Languages, frameworks, and infra I use regularly.</p>
+      <h2>Skills</h2>
+      <p class="section-desc">Languages, frameworks, data tools and platforms I use regularly.</p>
       <div class="stack-grid">
         <span class="stack-item">Python</span>
-        <span class="stack-item">TypeScript</span>
-        <span class="stack-item">Move (Sui)</span>
+        <span class="stack-item">JavaScript / TypeScript</span>
+        <span class="stack-item">Sui Move</span>
+        <span class="stack-item">Solidity</span>
+        <span class="stack-item">C</span>
+        <span class="stack-item">Bash</span>
+        <span class="stack-item">React</span>
+        <span class="stack-item">Node.js</span>
         <span class="stack-item">FastAPI</span>
         <span class="stack-item">scikit-learn</span>
+        <span class="stack-item">TensorFlow / PyTorch</span>
         <span class="stack-item">SHAP</span>
-        <span class="stack-item">Streamlit</span>
+        <span class="stack-item">Apache Spark</span>
         <span class="stack-item">Pandas / NumPy</span>
-        <span class="stack-item">SQL / Dune</span>
-        <span class="stack-item">React</span>
-        <span class="stack-item">Walrus</span>
+        <span class="stack-item">SQL</span>
+        <span class="stack-item">MongoDB</span>
+        <span class="stack-item">PostgreSQL / MySQL</span>
+        <span class="stack-item">Power BI</span>
+        <span class="stack-item">Tableau</span>
+        <span class="stack-item">Dune Analytics</span>
+        <span class="stack-item">Microsoft Intune</span>
         <span class="stack-item">Docker</span>
         <span class="stack-item">GitHub Actions</span>
-        <span class="stack-item">OAuth / Gmail API</span>
-        <span class="stack-item">HTML / CSS / JS</span>
+        <span class="stack-item">MetaMask</span>
+        <span class="stack-item">n8n</span>
+        <span class="stack-item">GraphQL / REST</span>
+      </div>
+
+      <div style="margin-top: 56px;">
+        <div class="section-label">Certifications</div>
+        <h2 style="margin-bottom: 20px;">Credentials</h2>
+        <div class="certs-grid">
+          <span class="cert-item">NVIDIA — Generative AI LLMs (NCA-GENL)</span>
+          <span class="cert-item">Microsoft — Power BI Data Analyst Associate</span>
+          <span class="cert-item">IBM — Data Science Professional Certificate</span>
+          <span class="cert-item">NPTEL — Introduction to IoT (Gold Medal)</span>
+          <span class="cert-item">CISCO — Networking Basics</span>
+        </div>
       </div>
     </div>
   </section>
@@ -644,11 +795,16 @@
     <div class="container">
       <div class="contact-box">
         <div class="section-label">Contact</div>
-        <h2>Let's build something</h2>
-        <p>Open to collaborations, interesting problems, and roles in crypto-native ML / DeFi infrastructure.</p>
+        <h2>Let's connect</h2>
+        <p>
+          Graduating June 2026 and open to full-time software / data / crypto-native roles. 
+          Happy to chat about interesting problems.
+        </p>
         <div class="contact-links">
-          <a href="mailto:RISHITD346@GMAIL.COM" class="btn btn-primary">Email Me</a>
+          <a href="mailto:rishitd346@gmail.com" class="btn btn-primary">Email</a>
+          <a href="https://www.linkedin.com/in/rishit-das-5225ab245/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
           <a href="https://github.com/Rish0x29" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+          <a href="tel:+919910550079" class="btn btn-ghost">+91 9910550079</a>
         </div>
       </div>
     </div>
@@ -656,7 +812,7 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Rishit Das · Built as a single-file static site · <a href="https://github.com/Rish0x29" target="_blank" rel="noopener">Rish0x29</a></p>
+      <p>© 2026 Rishit Das · Single-file static site · <a href="https://github.com/Rish0x29/portfolio" target="_blank" rel="noopener">Source</a></p>
     </div>
   </footer>
 </body>
